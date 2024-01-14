@@ -13,12 +13,10 @@ function App() {
   return (
     <>
       <Header />
-
       <div class="container px-0">
         <main class="main">
           <div class="row justify-content-between mx-0">
             <Sidebar />
-
             {router}
           </div>
         </main>
