@@ -11,7 +11,7 @@ export default function Sidebar() {
           alt="banner admin photo"
         />
         <div class="card-body">
-          <h4 class="card-title sidebar__top-name">محمدامین سعیدی راد</h4>
+          <h4 class="card-title sidebar__top-name">مهدی حق دوست</h4>
           <p class="card-text sidebar__top-email" lang="en">
             توسعه دهنده جاوا اسکریپت
           </p>
@@ -20,7 +20,7 @@ export default function Sidebar() {
               <span class="fa fa-text-height"></span>
               <p class="list__text mb-0">
                 <span class="">نام کوچک</span>
-                <span class="list__firstname">محمدامین</span>
+                <span class="list__firstname">مهدی</span>
               </p>
             </li>
             <li class="list__item">
@@ -28,7 +28,7 @@ export default function Sidebar() {
 
               <p class="list__text mb-0">
                 <span class="">نام خانوادگی</span>
-                <span class="list__lastname">سعیدی راد</span>
+                <span class="list__lastname">حق دوست</span>
               </p>
             </li>
             <li class="list__item">
