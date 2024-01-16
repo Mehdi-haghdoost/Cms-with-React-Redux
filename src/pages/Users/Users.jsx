@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Users.css'
 import UserItem from '../../Components/UserItem/UserItem'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUsersFromServer } from '../../Redux/store/users'
+
 
 export default function Users() {
+
+  const dispatch = useDispatch()
+  const users = useSelector(state => state.users)
+
+  useEffect(() => {
+    dispatch(getUsersFromServer('https://jsonplaceholder.typicode.com/users'))
+  }, [])
+
+
   return (
     <div class="col-8 content px-0">
       <div class="content__wrapper">
@@ -56,9 +68,12 @@ export default function Users() {
 
           <div class="users__list-container">
             <div class="users__list users__list-wrapper">
-              <UserItem />
-              <UserItem />
-              <UserItem />
+              {
+                users.map(user => (
+                  <UserItem  key={user.id} {...user} />
+                ))
+              }
+               
             </div>
           </div>
         </div>
