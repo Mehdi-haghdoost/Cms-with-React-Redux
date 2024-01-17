@@ -9,9 +9,7 @@ export default function Courses() {
 
     const dispatch = useDispatch()
     const courses = useSelector(state => state.courses)
-    console.log(courses);
-    
-  
+      
     useEffect(() => {
       dispatch(getCoursesFromServer("https://redux-cms.iran.liara.run/api/courses"))
     }, [])
