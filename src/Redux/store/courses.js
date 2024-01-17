@@ -15,9 +15,8 @@ const slice = createSlice({
     initialState : [],
     reducers : {},
     extraReducers :builder => {
-        builder.addCase(getCoursesFromServer.fulfilled,(state,action) => {
-            state.push(...action.payload)
-        })
+        builder.addCase(getCoursesFromServer.fulfilled,(state,action) => action.payload
+        )
     }
 })
 
