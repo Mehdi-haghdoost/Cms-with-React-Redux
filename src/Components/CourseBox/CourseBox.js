@@ -1,6 +1,29 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import swal from 'sweetalert';
+import { removeCourse } from '../../Redux/store/courses';
 
-export default function CoursesBox({category,desc,discount,price,registersCount,title}) {
+export default function CoursesBox({category,desc,discount,price,registersCount,title,_id}) {
+
+    const dispatch = useDispatch()
+  const removeHandler = () => {
+    swal({
+      title: "آیا از حذف مطمئن هستید؟",
+      icon: "warning",
+      buttons: ["نه", "آره"],
+    }).then((result) => {
+      if (result) {
+        dispatch(removeCourse(_id));
+
+        swal({
+          title: "کاربر مورد نظر با موفقیت حذف شد",
+          icon: "success",
+          button: "اوکی",
+        });
+      }
+    });
+  };
+
     return (
         <div className="products__item">
             <img
@@ -41,7 +64,7 @@ export default function CoursesBox({category,desc,discount,price,registersCount,
                         </div>
                     </div>
                     <div className="products__btns">
-                        <button className="btn btn-danger btn-lg">حذف</button>
+                        <button className="btn btn-danger btn-lg" onCanPlay={removeHandler}>حذف</button>
                         <button className="btn btn-info btn-lg">ویرایش</button>
                     </div>
                 </div>
