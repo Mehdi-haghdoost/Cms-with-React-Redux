@@ -12,7 +12,7 @@ export default function Users() {
   const users = useSelector(state => state.users)
 
   useEffect(() => {
-    dispatch(getUsersFromServer())
+    dispatch(getUsersFromServer('https://redux-cms.iran.liara.run/api/users'))
   }, [])
 
 

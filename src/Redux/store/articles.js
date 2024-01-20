@@ -9,6 +9,13 @@ export const getArticlesFromServer = createAsyncThunk(
             .then(data => data)
     }
 )
+export const removeArticle = createAsyncThunk("users/removeArticle", async (id) => {
+    return fetch(`https://redux-cms.iran.liara.run/api/articles/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => data);
+  });
 
 const slice = createSlice({
     name: 'getArticlesFromServer',
@@ -16,7 +23,12 @@ const slice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(getArticlesFromServer.fulfilled, (state, action) => action.payload
-        )
+        ),
+        builder.addCase(removeArticle.fulfilled, (state, action) => {
+          const newArticle = state.filter((article) => article._id !== action.payload.id);
+  
+          return newArticle;
+        });
     }
 })
 

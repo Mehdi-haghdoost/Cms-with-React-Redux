@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
+
 export const getUsersFromServer = createAsyncThunk(
   "users/getUsersFromServer",
-  async () => {
-    return fetch("https://redux-cms.iran.liara.run/api/users")
+  async (url) => {
+    return fetch(url)
       .then((res) => res.json())
       .then((data) => data);
   }
