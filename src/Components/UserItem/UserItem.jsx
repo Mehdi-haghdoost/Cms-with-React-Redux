@@ -6,36 +6,38 @@ import { ToastContainer, toast } from 'react-toastify';
 
 export default function UserItem({ firtsname, lastname, email, _id }) {
 
-  const showToast = () => {
-    toast.success('کاربر با موفقیت حذف شد', {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: true,
-      rtl: true,
-      progress: undefined,
-      theme: "light",
-    });
-  }
+  // const showToast = () => {
+  //   toast.success('کاربر با موفقیت حذف شد', {
+  //     position: "top-center",
+  //     autoClose: 3000,
+  //     hideProgressBar: false,
+  //     closeOnClick: false,
+  //     pauseOnHover: false,
+  //     draggable: true,
+  //     rtl: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //   });
+  // }
 
   const dispatch = useDispatch()
-  const removeHandler = () => {
+   const removeHandler = () => {
     swal({
-      title: 'آیا از حذف مطمئن هستید ؟',
-      icon: 'warning',
-      buttons: ['نه', 'آره']
-    }).then(result => {
-      console.log(result);
-
+      title: "آیا از حذف مطمئن هستید؟",
+      icon: "warning",
+      buttons: ["نه", "آره"],
+    }).then((result) => {
       if (result) {
-        dispatch(removeUser(_id))
-        showToast()
+        dispatch(removeUser(_id));
 
+        swal({
+          title: "کاربر مورد نظر با موفقیت حذف شد",
+          icon: "success",
+          button: "اوکی",
+        });
       }
-    })
-  }
+    });
+  };
 
 
   return (

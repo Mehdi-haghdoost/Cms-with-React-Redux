@@ -26,10 +26,12 @@ const slice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(
       getUsersFromServer.fulfilled,
-      (state, action) => action.payload),
+      (state, action) => action.payload
+    ),
       builder.addCase(removeUser.fulfilled, (state, action) => {
-        console.log("state =>", state)
-        console.log("action =>", action)
+        const newUsers = state.filter((user) => user._id !== action.payload.id);
+
+        return newUsers;
       });
   },
 });
