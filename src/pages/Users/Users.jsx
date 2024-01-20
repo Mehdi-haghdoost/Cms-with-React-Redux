@@ -12,7 +12,7 @@ export default function Users() {
   const users = useSelector(state => state.users)
 
   useEffect(() => {
-    dispatch(getUsersFromServer("https://redux-cms.iran.liara.run/api/users/"))
+    dispatch(getUsersFromServer())
   }, [])
 
 
@@ -70,10 +70,10 @@ export default function Users() {
             <div className="users__list users__list-wrapper">
               {
                 users.map(user => (
-                  <UserItem  key={user._id} {...user} />
+                  <UserItem key={user._id} {...user} />
                 ))
               }
-               
+
             </div>
           </div>
         </div>
